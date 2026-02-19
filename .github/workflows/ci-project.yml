@@ -9,8 +9,17 @@ jobs:
 
     steps:
 
+      - name: Checkout
       - uses: actions/checkout@v4
+
+      - name: Install node
       - uses: actions/setup-node@v4
+        with:
+          node-vaersion: '18.x'
+          cache: 'npm'
+
+      - name: Print Hello from Hexlet
+      - uses: hexlet-components/hello-from-hexlet-action@release
 
       - run: make setup
       - run: make test
