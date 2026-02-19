@@ -1,0 +1,17 @@
+name: ci-project
+
+on: push
+
+jobs:
+
+  install:
+    runs-on: ubuntu-lastest
+
+    steps:
+
+      uses: actions/checkout@4
+      uses: actions/setup-node@v4
+
+      run: make setup
+      run: make test
+      run: make lint
